@@ -1,10 +1,15 @@
-var $ = require('jquery');
 var Backbone = require('backbone');
 
-var ImageModel = Backbone.Model.extend();
+var ImageModel = Backbone.Model.extend({
 
-var ImageCollection = BackboneCollection.extend({
-  model: ImageModel
 });
 
-module.exports = {'ImageCollection': ImageCollection};
+var ImageCollection = Backbone.Collection.extend({
+  model: ImageModel,
+  url: 'http://tiny-lasagna-server.herokuapp.com/collections/erik-images'
+});
+
+module.exports = {
+  'ImageModel': ImageModel,
+  'ImageCollection': ImageCollection
+};
